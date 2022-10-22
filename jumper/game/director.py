@@ -34,7 +34,6 @@ class Director:
         while self._is_playing:
             self._get_inputs()
             self._do_updates()
-            self._do_outputs()
     
     def _get_inputs(self):
         """Display Jumper and the puzzle. Ask for player's guess.
