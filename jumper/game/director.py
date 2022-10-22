@@ -65,8 +65,11 @@ class Director:
             self (Director): An instance of Director.
             puzzle_word (Puzzle): The word randomly chosen for the puzzle.
             guess (TerminalService): The letter of input from the player. 
-            """
-        None
+        """
+        for i in range(len(puzzle_word)):
+            if i.lower() == guess.lower():
+                return True
+            else: return False
 
     def check_game_over(is_playing, jumper, word, guess):
         None
