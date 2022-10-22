@@ -53,8 +53,10 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        #if player_guess = true, update puzzle word to show correct letters
-        #if not, proceed to jumper's next phase
+        check = check_guess(puzzle_word, guess)
+        if check:
+            update_puzzle()
+        else: update_jumper()
 
     def check_game_over(is_playing, jumper, word, guess):
         None
