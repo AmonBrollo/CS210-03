@@ -58,5 +58,15 @@ class Director:
             update_puzzle()
         else: update_jumper()
 
+    def _check_guess(self, puzzle_word, guess):
+        """Check if the player's guess matches one of the letter in the puzzle.
+        
+        Args:
+            self (Director): An instance of Director.
+            puzzle_word (Puzzle): The word randomly chosen for the puzzle.
+            guess (TerminalService): The letter of input from the player. 
+            """
+        None
+
     def check_game_over(is_playing, jumper, word, guess):
         None
