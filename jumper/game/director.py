@@ -73,6 +73,13 @@ class Director:
             else: return False
 
     def _check_game_over(self, puzzle, jumper):
+        """Check if the player's guess matches one of the letter in the puzzle.
+        
+        Args:
+            self (Director): An instance of Director.
+            puzzle (Puzzle): The word randomly chosen for the puzzle.
+            jumper (Jumper): The jumper including its balloon.
+        """
         if blank_space == puzzle:
             print("Congratulations, you won!\nThanks for playing!")
             self._is_playing = False
