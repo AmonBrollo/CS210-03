@@ -71,5 +71,11 @@ class Director:
                 return True
             else: return False
 
-    def check_game_over(is_playing, jumper, word, guess):
-        None
+    def check_game_over(self, puzzle, jumper):
+        if blank_space == puzzle:
+            print("Congratulations, you won!\nThanks for playing!")
+            self._is_playing = False
+        elif jumper == self._jumper.jumper_phase_5:
+            print("Game Over. You lost!")            
+            self._is_playing = False
+        else: None        
