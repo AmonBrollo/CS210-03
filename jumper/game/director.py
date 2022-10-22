@@ -1,6 +1,6 @@
 from game.terminal_service import TerminalService
 from game.jumper import Jumper
-from game.word import Word
+from game.puzzle import Puzzle
 
 
 class Director:
@@ -10,7 +10,7 @@ class Director:
     Attributes:
         is_playing (boolean): Whether or not to keep playing.
         jumper (Jumper): The game's jumper.
-        word (Word): The game's word.
+        puzzle (Puzzle): The game's puzzle.
         terminal_service: For getting and displaying information on the terminal.
     """
 
@@ -22,7 +22,7 @@ class Director:
         """
         self._jumper = Jumper()
         self._is_playing = True
-        self._word = Word()
+        self._puzzle = Puzzle()
         self._terminal_service = TerminalService()
 
     def start_game(self):
