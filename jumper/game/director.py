@@ -34,6 +34,7 @@ class Director:
         while self._is_playing:
             self._get_inputs()
             self._do_updates()
+            self._check_game_over(self, puzzle, jumper)
     
     def _get_inputs(self):
         """Display Jumper and the puzzle. Ask for player's guess.
@@ -53,7 +54,7 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        check = check_guess(puzzle_word, guess)
+        check = self._check_guess(puzzle_word, guess)
         if check:
             update_puzzle()
         else: update_jumper()
@@ -71,7 +72,7 @@ class Director:
                 return True
             else: return False
 
-    def check_game_over(self, puzzle, jumper):
+    def _check_game_over(self, puzzle, jumper):
         if blank_space == puzzle:
             print("Congratulations, you won!\nThanks for playing!")
             self._is_playing = False
