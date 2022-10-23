@@ -4,11 +4,8 @@ class Jumper:
     The responsibility of the jumper is to show how many wrong guesses the player has 
     left.
     Attributes:
-        _phase_1 (string): Representation of the Jumper in phase 1
-        _phase_2 (string): Representation of the Jumper in phase 2
-        _phase_3 (string): Representation of the Jumper in phase 3
-        _phase_4 (string): Representation of the Jumper in phase 4
-        _phase_5 (string): Representation of the Jumper in phase 5
+        phase_number (int): A number to keep track of the phases.
+        phases (list<string>): Representation of the Jumper in all its phases.
     """
     def __init__(self):
         """Constructs a new Jumper.
@@ -16,8 +13,13 @@ class Jumper:
         Args:
             self (Jumper): an instance of Jumper.
         """
-        self._phase_1 = "\n  ___ \n /___\ \n \   / \n  \ / \n   0 \n  /|\ \n  / \ \n \n^^^^^^^"
-        self._phase_2 = "\n /___\ \n \   / \n  \ / \n   0 \n  /|\ \n  / \ \n \n^^^^^^^"
-        self._phase_3 = "\n \   / \n  \ / \n   0 \n  /|\ \n  / \ \n \n^^^^^^^"
-        self._phase_4 = "\n  \ / \n   0 \n  /|\ \n  / \ \n \n^^^^^^^"
-        self._phase_5 = "\n   x \n  /|\ \n  / \ \n \n^^^^^^^"
+        self.phase_number = 0
+        self.phases ["\n  ___ \n /___\ \n \   / \n  \ / \n   0 \n  /|\ \n  / \ \n \n^^^^^^^", 
+        "\n /___\ \n \   / \n  \ / \n   0 \n  /|\ \n  / \ \n \n^^^^^^^", 
+        "\n \   / \n  \ / \n   0 \n  /|\ \n  / \ \n \n^^^^^^^", "\n  \ / \n   0 \n  /|\ \n  / \ \n \n^^^^^^^"
+        "\n   x \n  /|\ \n  / \ \n \n^^^^^^^"]
+
+    def update_jumper(self, next_phase, phase_number):
+        if next_phase == True:
+            phase_number += 1
+            return phase_number
