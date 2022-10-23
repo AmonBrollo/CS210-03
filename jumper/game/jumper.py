@@ -14,10 +14,10 @@ class Jumper:
             self (Jumper): an instance of Jumper.
         """
         self.phase_number = 0
-        self.phases ["\n  ___ \n /___\ \n \   / \n  \ / \n   0 \n  /|\ \n  / \ \n \n^^^^^^^", 
+        self.phases = ["\n  ___ \n /___\ \n \   / \n  \ / \n   0 \n  /|\ \n  / \ \n \n^^^^^^^", 
         "\n /___\ \n \   / \n  \ / \n   0 \n  /|\ \n  / \ \n \n^^^^^^^", 
-        "\n \   / \n  \ / \n   0 \n  /|\ \n  / \ \n \n^^^^^^^", "\n  \ / \n   0 \n  /|\ \n  / \ \n \n^^^^^^^"
-        "\n   x \n  /|\ \n  / \ \n \n^^^^^^^"]
+        "\n \   / \n  \ / \n   0 \n  /|\ \n  / \ \n \n^^^^^^^", 
+        "\n  \ / \n   0 \n  /|\ \n  / \ \n \n^^^^^^^", "\n   x \n  /|\ \n  / \ \n \n^^^^^^^"]
 
     def update_jumper(self, phase_number):
         """Update the jumper to the next level.
