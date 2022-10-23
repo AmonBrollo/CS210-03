@@ -10,9 +10,14 @@ class Jumper:
         _phase_4 (string): Representation of the Jumper in phase 4
         _phase_5 (string): Representation of the Jumper in phase 5
     """
-
-_phase_1 = "\n  ___ \n /___\ \n \   / \n  \ / \n   0 \n  /|\ \n  / \ \n \n^^^^^^^"
-_phase_2 = "\n /___\ \n \   / \n  \ / \n   0 \n  /|\ \n  / \ \n \n^^^^^^^"
-_phase_3 = "\n \   / \n  \ / \n   0 \n  /|\ \n  / \ \n \n^^^^^^^"
-_phase_4 = "\n  \ / \n   0 \n  /|\ \n  / \ \n \n^^^^^^^"
-_phase_5 = "\n   x \n  /|\ \n  / \ \n \n^^^^^^^"
+    def __init__(self):
+        """Constructs a new Jumper.
+        
+        Args:
+            self (Jumper): an instance of Jumper.
+        """
+        self._phase_1 = "\n  ___ \n /___\ \n \   / \n  \ / \n   0 \n  /|\ \n  / \ \n \n^^^^^^^"
+        self._phase_2 = "\n /___\ \n \   / \n  \ / \n   0 \n  /|\ \n  / \ \n \n^^^^^^^"
+        self._phase_3 = "\n \   / \n  \ / \n   0 \n  /|\ \n  / \ \n \n^^^^^^^"
+        self._phase_4 = "\n  \ / \n   0 \n  /|\ \n  / \ \n \n^^^^^^^"
+        self._phase_5 = "\n   x \n  /|\ \n  / \ \n \n^^^^^^^"
