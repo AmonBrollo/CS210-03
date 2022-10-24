@@ -14,7 +14,7 @@ class Puzzle:
         """Constructs a new Puzzle.
         
         Args:
-            self (Puzzle): An instance if Puzzle.
+            self (Puzzle): An instance of Puzzle.
         """
         self._words = ["easy","photography","baby","episode","withdraw","qualified","watch","trustee",
         "ghostwriter","thread","overeat","perfume","roar","impound","primary","listen","helmet",
@@ -24,8 +24,25 @@ class Puzzle:
         """Get a random word from the list of words.
         
         Args:
-            self (Puzzle): An instance if Puzzle.
+            self (Puzzle): An instance of Puzzle.
             _words (list<string>): A list of words.
         """
         word = random.choice(_words)
         return word
+
+    def _update_puzzle(self, blank_space, word, letter):
+        """Update the puzzle's blank spaces according to the player's guess.
+        
+        Args:
+            self (Puzzle): An instance of Puzzle.
+            blank_space (string): The blank spaces displaying to the player.
+            word (string): The puzzle word randomly generated.
+            letter (string): The player's guess.
+        """
+        blank_space = ""
+        for i in word:
+            if i == letter:        
+                blank_space += letter
+            else: blank_space += "_"
+
+        return blank_space
