@@ -34,7 +34,7 @@ class Director:
         while self._is_playing:
             self._get_inputs()
             self._do_updates()
-            self._check_game_over(self, puzzle, jumper)
+            self._check_game_over(self.puzzle_word, self._jumper.jumper)
     
     def _get_inputs(self):
         """Display Jumper and the puzzle. Ask for player's guess.
@@ -81,7 +81,7 @@ class Director:
             puzzle (Puzzle): The word randomly chosen for the puzzle.
             jumper (Jumper): The jumper including its balloon.
         """
-        if blank_space == puzzle:
+        if self.blank_space == puzzle:
             print("Congratulations, you won!\nThanks for playing!")
             self._is_playing = False
         elif jumper == self._jumper.jumper_phase_5:
