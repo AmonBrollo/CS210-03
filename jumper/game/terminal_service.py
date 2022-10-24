@@ -26,3 +26,12 @@ class TerminalService:
             phases (list<string>): Representation of the Jumper in all its phases.
         """
         print(phases[phase_number])
+
+    def read_letter(prompt):
+        """Display a prompt to the player for them to pick a latter between a-z.
+
+        Args:
+            prompt (string): A message that gathers input from the user.
+        """
+        guess = input(prompt)
+        return guess
