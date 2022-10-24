@@ -30,7 +30,7 @@ class Puzzle:
         word = random.choice(words)
         return word
 
-    def _update_puzzle(self, blank_space, word, letter):
+    def update_puzzle(self, blank_space, word, letter):
         """Update the puzzle's blank spaces according to the player's guess.
         
         Args:
