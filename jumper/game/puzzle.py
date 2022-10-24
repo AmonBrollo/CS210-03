@@ -7,7 +7,7 @@ class Puzzle:
     The responsibility of the Puzzle is to generate a random word for the player to guess and display the
     puzzle being solved.
     Attributes:
-        _words (list<string>): A list of words 
+        words (list<string>): A list of words 
     """
 
     def __init__(self):
@@ -16,18 +16,18 @@ class Puzzle:
         Args:
             self (Puzzle): An instance of Puzzle.
         """
-        self._words = ["easy","photography","baby","episode","withdraw","qualified","watch","trustee",
+        self.words = ["easy","photography","baby","episode","withdraw","qualified","watch","trustee",
         "ghostwriter","thread","overeat","perfume","roar","impound","primary","listen","helmet",
         "revolutionary","west","sister"]
 
-    def get_word(self,_words):
+    def get_word(self,words):
         """Get a random word from the list of words.
         
         Args:
             self (Puzzle): An instance of Puzzle.
-            _words (list<string>): A list of words.
+            words (list<string>): A list of words.
         """
-        word = random.choice(_words)
+        word = random.choice(words)
         return word
 
     def _update_puzzle(self, blank_space, word, letter):
