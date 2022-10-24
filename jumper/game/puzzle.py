@@ -19,3 +19,13 @@ class Puzzle:
         self._words = ["easy","photography","baby","episode","withdraw","qualified","watch","trustee",
         "ghostwriter","thread","overeat","perfume","roar","impound","primary","listen","helmet",
         "revolutionary","west","sister"]
+
+    def get_word(self,_words):
+        """Get a random word from the list of words.
+        
+        Args:
+            self (Puzzle): An instance if Puzzle.
+            _words (list<string>): A list of words.
+        """
+        word = random.choice(_words)
+        return word
