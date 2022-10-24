@@ -43,10 +43,10 @@ class Director:
             self (Director): An instance of Director.
         """
         puzzle_word = self._puzzle.get_word(self._puzzle.words)
-        self._terminal_service.display.puzzle(puzzle_word)
+        blank_space = self._terminal_service.display_puzzle(puzzle_word)
         self._terminal_service.display_jumper(self._jumper.phases,self._jumper.phase_number)
         guess = self._terminal_service.read_letter(f"\nGuess a letter [a-z]: ")
-        return guess
+        return guess, blank_space
 
     def _do_updates(self):
         """Check if player's guess matches the puzzle word. Update the puzzle and jumper
@@ -55,10 +55,10 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        check = self._check_guess(puzzle_word, guess)
+        check = self._check_guess(self.puzzle_word, self.guess)
         if check:
-            update_puzzle()
-        else: update_jumper()
+            self._puzzle.update_puzzle(self.blank_space, self.puzzle_word, self.guess)
+        else: self._jumper.update_jumper(self._jumper.phase_number)
 
     def _check_guess(self, puzzle_word, guess):
         """Check if the player's guess matches one of the letter in the puzzle.
