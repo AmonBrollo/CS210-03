@@ -14,7 +14,7 @@ class TerminalService:
             puzzle (string): The Puzzle word.
         """
         blank_space = ""
-        for i in len(puzzle):
+        for i in puzzle:
             blank_space += "_"
         return blank_space
 
