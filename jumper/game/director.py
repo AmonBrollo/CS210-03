@@ -42,10 +42,11 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        puzzle_word = self._puzzle.get_word(words)
-        self._terminal_service.display.puzzle()
-        self._terminal_service.display_jumper(jumper_phase)
+        puzzle_word = self._puzzle.get_word(self._puzzle.words)
+        self._terminal_service.display.puzzle(puzzle_word)
+        self._terminal_service.display_jumper(self._jumper.phases,self._jumper.phase_number)
         guess = self._terminal_service.read_letter(f"\nGuess a letter [a-z]: ")
+        return guess
 
     def _do_updates(self):
         """Check if player's guess matches the puzzle word. Update the puzzle and jumper
