@@ -42,7 +42,7 @@ class Puzzle:
         blank_space = ""
         for i in word:
             if i == letter:        
-                blank_space += letter
-            else: blank_space += "_"
+                blank_space += f"{letter} "
+            else: blank_space += "_ "
 
         return blank_space
