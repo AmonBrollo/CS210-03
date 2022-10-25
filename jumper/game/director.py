@@ -44,6 +44,7 @@ class Director:
         """
         puzzle_word = self._puzzle.get_word(self._puzzle.words)
         blank_space = self._terminal_service.display_puzzle(puzzle_word)
+        print(f"\n{blank_space}")
         self._terminal_service.display_jumper(self._jumper.phases,self._jumper.phase_number)
         guess = self._terminal_service.read_letter(f"\nGuess a letter [a-z]: ")
         return guess, blank_space
