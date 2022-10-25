@@ -15,7 +15,7 @@ class TerminalService:
         """
         blank_space = ""
         for i in puzzle:
-            blank_space += "_"
+            blank_space += "_ "
         return blank_space
 
     def display_jumper(self, phases, phase_number):
