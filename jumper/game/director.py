@@ -35,8 +35,8 @@ class Director:
         """
         while self._is_playing:
             self._get_inputs()
-            self._do_updates()
-            self._check_game_over(self._puzzle_word, self._jumper.jumper)
+            self._do_updates(self._puzzle, self._puzzle_word, self.guess)
+            self._check_game_over(self._jumper.phase_number)
     
     def _get_inputs(self):
         """Display Jumper and the puzzle. Ask for player's guess.
@@ -49,43 +49,31 @@ class Director:
         self.guess = self._terminal_service.read_letter(f"\nGuess a letter [a-z]: ")
         return self.guess
 
-    def _do_updates(self):
+    def _do_updates(self, puzzle, _puzzle_word, guess):
         """Check if player's guess matches the puzzle word. Update the puzzle and jumper
         accordingly.
 
         Args:
             self (Director): An instance of Director.
         """
-        check = self._check_guess(self._puzzle_word, self.guess)
-        if check:
-            self._puzzle.update_puzzle(self.blank_space, self._puzzle_word, self.guess)
-        else: self._jumper.update_jumper(self._jumper.phase_number)
-
-    def _check_guess(self, _puzzle_word, guess):
-        """Check if the player's guess matches one of the letter in the puzzle.
-        
-        Args:
-            self (Director): An instance of Director.
-            puzzle_word (Puzzle): The word randomly chosen for the puzzle.
-            guess (TerminalService): The letter of input from the player. 
-        """
-        for i in range(len(_puzzle_word)):
+        for i in _puzzle_word:
             if i == guess:
-                return True
-            else: return False
+                self._puzzle.update_puzzle(self._blank_space, self._puzzle_word, self.guess)
+        
+        else: self._jumper.phase_number += 1
 
-    def _check_game_over(self, puzzle, jumper):
+    def _check_game_over(self, phase_number):
         """Check if the player's guess matches one of the letter in the puzzle.
         
         Args:
             self (Director): An instance of Director.
             puzzle (Puzzle): The word randomly chosen for the puzzle.
             jumper (Jumper): The jumper including its balloon.
-        """
-        if self.blank_space == puzzle:
+        """        
+        if self._blank_space == self._puzzle_word:
             print("Congratulations, you won!\nThanks for playing!")
             self._is_playing = False
-        elif jumper == self._jumper.jumper_phase_5:
+        elif phase_number == 4:
             print("Game Over. You lost!")            
             self._is_playing = False
         else: None        
