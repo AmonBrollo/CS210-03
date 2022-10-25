@@ -7,7 +7,7 @@ class TerminalService:
 
 
 
-    def display_puzzle(puzzle):
+    def display_puzzle(self, puzzle):
         """Display the blank puzzle space according to the puzzle word.
         
         Args:
@@ -18,7 +18,7 @@ class TerminalService:
             blank_space += "_"
         return blank_space
 
-    def display_jumper(phases, phase_number):
+    def display_jumper(self, phases, phase_number):
         """Display the phase the jumper is in.
 
         Args:
@@ -27,7 +27,7 @@ class TerminalService:
         """
         print(phases[phase_number])
 
-    def read_letter(prompt):
+    def read_letter(self, prompt):
         """Display a prompt to the player for them to pick a latter between a-z.
 
         Args:
