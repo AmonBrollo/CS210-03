@@ -18,13 +18,3 @@ class Jumper:
         "\n /___\ \n \   / \n  \ / \n   0 \n  /|\ \n  / \ \n \n^^^^^^^", 
         "\n \   / \n  \ / \n   0 \n  /|\ \n  / \ \n \n^^^^^^^", 
         "\n  \ / \n   0 \n  /|\ \n  / \ \n \n^^^^^^^", "\n   x \n  /|\ \n  / \ \n \n^^^^^^^"]
-
-    def update_jumper(self, phase_number):
-        """Update the jumper to the next level.
-        
-        Args:
-            self (Jumper): An instance of Jumper.
-            phase_number (int): A number to influence the level.
-        """
-        phase_number += 1
-        return phase_number
