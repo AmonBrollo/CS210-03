@@ -24,6 +24,8 @@ class Director:
         self._is_playing = True
         self._puzzle = Puzzle()
         self._terminal_service = TerminalService()
+        self._puzzle_word = self._puzzle.get_word(self._puzzle.words)
+        self._blank_space = self._terminal_service.display_puzzle(self._puzzle_word)
 
     def start_game(self):
         """Starts the game by running the main game loop.
@@ -34,7 +36,7 @@ class Director:
         while self._is_playing:
             self._get_inputs()
             self._do_updates()
-            self._check_game_over(self.puzzle_word, self._jumper.jumper)
+            self._check_game_over(self._puzzle_word, self._jumper.jumper)
     
     def _get_inputs(self):
         """Display Jumper and the puzzle. Ask for player's guess.
@@ -42,12 +44,10 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        puzzle_word = self._puzzle.get_word(self._puzzle.words)
-        blank_space = self._terminal_service.display_puzzle(puzzle_word)
-        print(f"\n{blank_space}")
+        print(f"\n{self._blank_space}")
         self._terminal_service.display_jumper(self._jumper.phases,self._jumper.phase_number)
-        guess = self._terminal_service.read_letter(f"\nGuess a letter [a-z]: ")
-        return guess, blank_space
+        self.guess = self._terminal_service.read_letter(f"\nGuess a letter [a-z]: ")
+        return self.guess
 
     def _do_updates(self):
         """Check if player's guess matches the puzzle word. Update the puzzle and jumper
@@ -56,12 +56,12 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        check = self._check_guess(self.puzzle_word, self.guess)
+        check = self._check_guess(self._puzzle_word, self.guess)
         if check:
-            self._puzzle.update_puzzle(self.blank_space, self.puzzle_word, self.guess)
+            self._puzzle.update_puzzle(self.blank_space, self._puzzle_word, self.guess)
         else: self._jumper.update_jumper(self._jumper.phase_number)
 
-    def _check_guess(self, puzzle_word, guess):
+    def _check_guess(self, _puzzle_word, guess):
         """Check if the player's guess matches one of the letter in the puzzle.
         
         Args:
@@ -69,8 +69,8 @@ class Director:
             puzzle_word (Puzzle): The word randomly chosen for the puzzle.
             guess (TerminalService): The letter of input from the player. 
         """
-        for i in range(len(puzzle_word)):
-            if i.lower() == guess.lower():
+        for i in range(len(_puzzle_word)):
+            if i == guess:
                 return True
             else: return False
 
